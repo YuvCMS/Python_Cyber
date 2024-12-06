@@ -15,5 +15,16 @@ s.listen()
 
 #accept 
 
-conn , addr = s.accept()
-print(f'connection receive from {addr}')
+client, addr = s.accept()
+
+print(f'Connection receive from {addr}')
+'''
+while True : 
+    data = input('Enter a msg')
+    client.sendall(str.encode(data))  
+    msg = client.recv(1024).decode()
+    if not msg :
+        break
+    print(msg) 
+'''
+client.close()
